@@ -29,7 +29,7 @@ ractivities.addEventListener('click', (e) => {
     if (e.target.classList.contains('fa-trash')) {
         e.target.parentElement.parentElement.remove();
     }
-    saveData();
+    // saveData();
 });
 
 // Action: when user hits listresult element
@@ -121,7 +121,7 @@ function convertorActivate() {
             addToTable();
         }
     }
-    saveData();
+    // saveData();
 }
 
 // // Action: to add searched element into table
@@ -151,7 +151,7 @@ function addToTable() {
     if (!inserted) {
         tbody.appendChild(tableRow);
     }
-    saveData();
+    // saveData();
 }
 
 // Action: deleting list from table when user hits trash btn
@@ -186,18 +186,18 @@ ip.addEventListener('input', () => {
 })
 
 // Action: Saving data into local storage
-function saveData() {
-    localStorage.setItem('recentActivities', ractivities.innerHTML);
-    localStorage.setItem('tableData', pactivities.innerHTML);
-}
+// function saveData() {
+//     localStorage.setItem('recentActivities', ractivities.innerHTML);
+//     localStorage.setItem('tableData', pactivities.innerHTML);
+// }
 // saveData(); //used to set initial value
 
 // Action: Loading data from local storage
-function getData() {
-    ractivities.innerHTML = localStorage.getItem('recentActivities');
-    pactivities.innerHTML = localStorage.getItem('tableData');
-}
-getData();
+// function getData() {
+    // ractivities.innerHTML = localStorage.getItem('recentActivities');
+    // pactivities.innerHTML = localStorage.getItem('tableData');
+// }
+// getData();
 
 // for copy and voice button
 // Action: copy to clipboard
