@@ -56,7 +56,9 @@ function convertorActivate() {
     }
     else if (lang[0].value == lang[1].value) { 
         op.value = ip.value;
-    } else {
+        console.log('same lang_type');
+    } 
+    else {
         ltype = `${lang[0].value}_${lang[1].value}`.toLowerCase();
         resiprocalltype = `${lang[1].value}_${lang[0].value}`.toLowerCase();
         // retriving data from selfDict
