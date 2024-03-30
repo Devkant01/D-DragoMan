@@ -137,13 +137,13 @@ header .block {
     z-index: 1;
 }
 
-header a{
+header a {
     font-size: 1.8em;
     color: var(--clr-title);
     cursor: pointer;
 }
 
-header a::after{
+header a::after {
     display: none;
 }
 
@@ -202,7 +202,7 @@ main {
     }
 }
 
-.main-block-title{
+.main-block-title {
     font-size: 2.2em;
     color: var(--clr-bg);
     margin-bottom: 10px;
@@ -469,7 +469,12 @@ main .listResult {
     place-self: center;
     display: flex;
     overflow-x: auto;
+    scrollbar-width: none;
     overflow-y: scroll;
+}
+
+#result::-webkit-scrollbar {
+    display: none;
 }
 
 @media screen and (max-width: 650px) {
