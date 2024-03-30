@@ -197,8 +197,7 @@ function getData() {
     ractivities.innerHTML = localStorage.getItem('recentActivities');
     pactivities.innerHTML = localStorage.getItem('tableDatgia');
 }
-getData();
-
+window.addEventListener('load', getData);
 // for copy and voice button
 // Action: copy to clipboard
 copy.addEventListener('click', () => {
