@@ -195,7 +195,7 @@ ip.addEventListener('input', () => {
 // Action: Loading data from local storage
 function getData() {
     ractivities.innerHTML = localStorage.getItem('recentActivities');
-    pactivities.innerHTML = localStorage.getItem('tableData');
+    pactivities.innerHTML = localStorage.getItem('tableDatgia');
 }
 getData();
 
