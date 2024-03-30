@@ -469,8 +469,16 @@ main .listResult {
     place-self: center;
     display: flex;
     overflow-x: auto;
-    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: hidden;
 }
+
+#result::-webkit-scrollbar{
+    display:none;
+}
+
+
 
 @media screen and (max-width: 650px) {
     #result {
