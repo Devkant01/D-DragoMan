@@ -193,11 +193,11 @@ ip.addEventListener('input', () => {
 })
 
 // Action: Loading data from local storage
-// function getData() {
-    // ractivities.innerHTML = localStorage.getItem('recentActivities');
-    // pactivities.innerHTML = localStorage.getItem('tableData');
-// }
-// getData();
+function getData() {
+    ractivities.innerHTML = localStorage.getItem('recentActivities');
+    pactivities.innerHTML = localStorage.getItem('tableData');
+}
+getData();
 
 // for copy and voice button
 // Action: copy to clipboard
