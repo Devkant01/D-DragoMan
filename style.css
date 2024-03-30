@@ -485,7 +485,7 @@ main .listResult {
 }
 
 table {
-    display: none;
+    /* display: none; */
     table-layout: auto;
     min-width: 650px;
     border-collapse: collapse;
