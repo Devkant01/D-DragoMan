@@ -17,6 +17,13 @@ var ltype = '';
 var resiprocalltype = '';
 let lCodeFrom, lCodeTo;
 
+// Action: Saving data into local storage
+function saveData() {
+    localStorage.setItem('recentActivities', ractivities.innerHTML);
+    localStorage.setItem('tableData', pactivities.innerHTML);
+}
+saveData(); //used to set initial value
+
 // Action: updating position of caption element as sticky and header element as relative
 if (caption.getBoundingClientRect().top == 105) {
     console.log('x');
@@ -29,7 +36,7 @@ ractivities.addEventListener('click', (e) => {
     if (e.target.classList.contains('fa-trash')) {
         e.target.parentElement.parentElement.remove();
     }
-    // saveData();
+    saveData();
 });
 
 // Action: when user hits listresult element
@@ -121,7 +128,7 @@ function convertorActivate() {
             addToTable();
         }
     }
-    // saveData();
+    saveData();
 }
 
 // // Action: to add searched element into table
@@ -151,7 +158,7 @@ function addToTable() {
     if (!inserted) {
         tbody.appendChild(tableRow);
     }
-    // saveData();
+    saveData();
 }
 
 // Action: deleting list from table when user hits trash btn
@@ -184,13 +191,6 @@ ip.addEventListener('input', () => {
     op.value = '';
     op.setAttribute('placeholder', 'translating...');
 })
-
-// Action: Saving data into local storage
-// function saveData() {
-//     localStorage.setItem('recentActivities', ractivities.innerHTML);
-//     localStorage.setItem('tableData', pactivities.innerHTML);
-// }
-// saveData(); //used to set initial value
 
 // Action: Loading data from local storage
 // function getData() {
