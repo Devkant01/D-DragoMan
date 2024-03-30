@@ -1,0 +1,134 @@
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        /* overflow: hidden; don't use in universal selector*/
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    i {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: linear-gradient(35deg, #2270E2, #226fe280, #226fe228, white);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        overflow: hidden;
+    }
+
+    .container {
+        display: flex;
+        width: 80%;
+        padding: 20px 25px 0 25px;
+    }
+
+    .About h1 {
+        color: #192837;
+        font-size: 3em;
+        margin-left: 10px;
+    }
+
+    img {
+        width: 300px;
+        height: 100vh;
+        transition: width 0.5s 0s linear;
+    }
+
+    .description {
+        font-size: 1.2em;
+        height: max-content;
+        align-self: center;
+        margin-right: 10px;
+        transition: all 0.5s 0s ease-in-out;
+    }
+
+    .description p {
+        margin: 10px;
+        background-color: #2270E2;
+        padding: 15px 10px;
+        border-radius: 12px;
+        color: white;
+    }
+
+    @media screen and (min-width: 1100px) {
+        img {
+            width: 400px;
+        }
+    }
+
+
+    @media screen and (max-width: 1100px) {
+        .container {
+            width: 90%;
+            padding: 20px 0 0 0;
+        }
+
+        img {
+            width: 350px;
+        }
+    }
+
+    @media screen and (max-width: 850px) {
+        .container {
+            width: 100%;
+            padding: 20px 0 0 0;
+        }
+
+        img {
+            width: 300px;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        background-color: #2270E2;
+        padding-inline: 8px;
+        padding-block: 12px;
+        border: 2px solid blue;
+        border-radius: 10px;
+        position: absolute;
+        left: 40%;
+        bottom: 70px;
+        transition: background-color 0.4s 0s linear, bottom 0.5s 0s linear;
+    }
+
+    a:hover {
+        background-color: blue;
+    }
+
+    @media screen and (max-width: 720px) {
+        img {
+            width: 80%;
+        }
+
+        .description {
+            position: absolute;
+            width: 80%;
+            right: 20px;
+        }
+
+        .About h1 {
+            font-size: 2.8em;
+        }
+
+        a {
+            bottom: -70px;
+        }
+    }
+
+    @media screen and (max-width: 550px) {
+        .description {
+            font-size: 1em;
+        }
+    }

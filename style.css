@@ -1,0 +1,624 @@
+*,
+*::after,
+*::before {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /* overflow: hidden; don't use in universal selector*/
+}
+
+h1,
+h2,
+h4,
+h5,
+p,
+i {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --clr-bg: #73BDC3;
+    --clr-block: #982649;
+    --clr-shadow: #166088;
+    --clr-ft: #6ab547;
+    --clr-op: rgb(11, 56, 3);
+    --clr-title: #ddb34d;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: var(--clr-bg);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* height: 188vh; */
+    /*try to remove it i added to make header unsticky after scrolling 190vh*/
+    /* place-content: center; (never use this :( and overflow also)*/
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* common things */
+input[type="text"] {
+    caret-color: #982649;
+    background-color: #fff;
+    color: var(--clr-op);
+    font-size: 1.4em;
+    text-indent: 5px;
+    border: none;
+    outline: none;
+}
+
+select[id="langType"] {
+    text-align: center;
+    background-color: #fff;
+    border: none;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: white;
+    text-transform: capitalize;
+    transition: text-decoration 5s ease-in 1s;
+}
+
+a:after {
+    /* background: none repeat scroll 0 0 transparent; */
+    content: "";
+    display: block;
+    height: 1px;
+    position: relative;
+    bottom: 0;
+    left: 50%;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+
+@media screen and (max-height: 300px) {
+    ul {
+        margin-top: 40px;
+    }
+}
+
+.ip {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.op {
+    color: var(--clr-ft);
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.cur-pointer {
+    cursor: pointer;
+}
+
+
+/* header */
+header {
+    background-color: var(--clr-block);
+    height: 100px;
+    width: 100%;
+    border-block-start: 5px solid red;
+    position: sticky;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 15px var(--clr-shadow);
+    z-index: 1;
+}
+
+header .block {
+    width: 70%;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+header a{
+    font-size: 1.8em;
+    color: var(--clr-title);
+    cursor: pointer;
+}
+
+header a::after{
+    display: none;
+}
+
+header i,
+header .titleName {
+    float: left;
+    padding-right: 15px;
+}
+
+header i {
+    font-size: 1.8em;
+    color: white;
+}
+
+/* main */
+main {
+    width: 550px;
+    min-height: 60vh;
+    margin-block-start: 15px;
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: grid;
+    place-content: center;
+    background-color: var(--clr-shadow);
+    margin-block-end: 500px;
+}
+
+@media screen and (max-width: 500px) {
+    header h1 {
+        display: none;
+        color: red;
+    }
+
+    header .block {
+        justify-content: center;
+    }
+
+    header {
+        width: 100%;
+    }
+
+    main {
+        width: 450px;
+        margin-block: 15px;
+        border-radius: 12px;
+        padding: 10px 10px;
+        display: grid;
+        place-content: center;
+        background-color: var(--clr-shadow);
+    }
+}
+
+@media screen and (max-width: 470px) {
+    main {
+        width: 100%;
+    }
+}
+
+.main-block-title{
+    font-size: 2.2em;
+    color: var(--clr-bg);
+    margin-bottom: 10px;
+    transform: translateX(-7%);
+    letter-spacing: 2.25px;
+}
+
+.main-block-title::first-letter {
+    color: var(--clr-block);
+}
+
+main #userSection {
+    display: flex;
+    justify-self: center;
+    border: 5px solid #fff;
+    border-radius: 8px;
+    width: 100%;
+    block-size: 60px;
+    /* overflow: hidden; */
+    /* no need :)*/
+}
+
+#userSection select[id="langType"] {
+    width: 80px;
+    height: 100%;
+}
+
+#userSection input[type="text"] {
+    width: 350px;
+    height: 100%;
+    color: unset;
+}
+
+main #translateTo {
+    text-align: center;
+    margin-block: 10px;
+    font-size: 2em;
+    color: var(--clr-title);
+}
+
+/* .translator{
+} */
+
+.translator:active {
+    animation: rotate 0.25s linear 0s 1 normal both;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(270deg);
+    }
+}
+
+main #serverSection {
+    display: grid;
+    block-size: 70px;
+    border: 5px solid #fff;
+    border-radius: 8px;
+    grid-template-areas:
+        'select textbox attributes';
+    grid-template-columns: 80px 270px 80px;
+    /* single row elements */
+    /* overflow: hidden; */
+}
+
+#serverSection select[id="langType"] {
+    grid-area: select;
+}
+
+#serverSection input[type="text"] {
+    grid-area: textbox;
+    /* outline: 10px solid #fff; */
+    caret-color: transparent;
+    text-indent: .65em;
+}
+
+#serverSection .ss-attributes {
+    position: relative;
+    display: inline-block;
+    grid-area: attributes;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    gap: 20px;
+    font-size: 17px;
+    padding-bottom: 10px;
+    padding-inline: 18px;
+    background-color: #fff;
+}
+
+.tooltips {
+    visibility: hidden;
+    position: absolute;
+    font: initial;
+    top: -10%;
+    width: 150px;
+    font-size: 1.1em;
+    background-color: #555;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    padding: 3px 0;
+    z-index: 1;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s 0s linear;
+}
+
+#copytool::after {
+    content: ' ';
+    width: 8px;
+    /* background-color: #555; */
+    position: absolute;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #555 transparent transparent transparent;
+    top: 100%;
+    left: 57%;
+}
+
+#voicetool::after {
+    content: ' ';
+    width: 8px;
+    /* background-color: #555; */
+    position: absolute;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #555 transparent transparent transparent;
+    top: 100%;
+    right: 62%;
+}
+
+
+
+.fa-volume-high:hover .tooltips,
+.fa-copy:hover .tooltips {
+    visibility: visible;
+    opacity: 1;
+}
+
+.fa-volume-high,
+.fa-copy {
+    transition: color .4s ease 0s;
+}
+
+.fa-volume-high:hover,
+.fa-copy:hover {
+    color: steelblue;
+}
+
+.suggestion {
+    margin-left: 65%;
+    block-size: 15x;
+    text-align: center;
+    color: rgba(0, 0, 255, 0.549);
+    padding: 5px 10px 0 0px;
+    font-size: 1.35em;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+main #activities {
+    margin: 0 10px 10px 10px;
+
+}
+
+main #activities h3 {
+    font-size: 2em;
+    color: var(--clr-bg);
+}
+
+main #activities h3::first-letter {
+    font-size: 2.5rem;
+}
+
+/* #activities .tips {
+    margin-left: 6px;
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    font-size: 1.5rem;
+} */
+
+main #activities ul {
+    margin-left: 15px;
+    counter-reset: list-counter;
+}
+
+#activities ul li {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    font-size: 1.5rem;
+}
+
+
+li {
+    display: flex;
+    /* Use flexbox */
+    align-items: center;
+    /* Center items vertically */
+}
+
+.ip,
+.op,
+span {
+    margin-right: 10px;
+    /* Add space between elements */
+}
+
+#deleteIt {
+    margin-left: auto;
+    /* Push deleteIt to the right */
+    color: rgba(221, 0, 0, 0.701);
+    opacity: 0;
+    transition: opacity 0.55s 0s ease-in-out;
+    transition: color .4s ease 0s;
+}
+
+.fa-trash {
+    transition: all 0.55s 0s ease-in-out;
+}
+
+#deleteIt:hover {
+    opacity: 1;
+    color: rgba(221, 0, 0, 0.701);
+}
+
+#activities ul li:hover #deleteIt {
+    opacity: 1;
+    color: rgba(221, 0, 0, 0.701);
+}
+
+
+#activities ul li::before {
+    counter-increment: list-counter;
+    content: "" counter(list-counter) ". ";
+    color: #fff;
+
+}
+
+main .listResult {
+    /* display: block; */
+    place-self: end;
+    color: var(--clr-bg);
+    font-weight: bolder;
+}
+
+/* 
+.falseSpace {
+    height: 100vh;
+    width: 100vh;
+    background-color: #fff;
+} */
+
+#result {
+    padding-top: 95px;
+    width: 650px;
+    place-self: center;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+
+@media screen and (max-width: 650px) {
+    #result {
+        justify-self: center;
+        width: 95%;
+    }
+}
+
+table {
+    display: none;
+    table-layout: auto;
+    min-width: 650px;
+    border-collapse: collapse;
+    color: #000;
+    /* overflow-y: hidden; */
+}
+
+table caption {
+    font-size: 3em;
+    font-weight: bolder;
+    color: var(--clr-block);
+    position: sticky;
+    top: 0px;
+    background-color: var(--clr-bg);
+    /* box-shadow: -1px 10px 10px var(--clr-shadow); */
+}
+
+@media screen and (max-width: 650px) {
+    caption {
+        justify-self: center;
+        width: 450px;
+    }
+}
+
+table th {
+    background-color: var(--clr-shadow);
+    block-size: 60px;
+    padding-inline: 10px;
+    min-width: 80px;
+    font-size: 1.3em;
+}
+
+table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+table tbody {
+    counter-reset: count-value;
+    text-transform: capitalize;
+}
+
+table tbody tr {
+    block-size: 50px;
+    /* text-align: center; */
+    text-indent: 10px;
+    color: black;
+    font-size: 1.2em;
+}
+
+
+/* row wise */
+table tbody tr:nth-child(odd) {
+    background-color: #B8D4E3;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #A0D2DB;
+}
+
+table tbody td {
+    text-transform: capitalize;
+    font-size: 1.2em;
+    text-align: start;
+}
+
+/* column wise */
+
+table tr td:nth-child(1)::before {
+    counter-increment: count-value;
+    content: "" counter(count-value)". ";
+}
+
+table tr td:nth-child(2) {
+    color: white;
+    text-transform: capitalize;
+}
+
+#categoryType {
+    color: var(--clr-block) !important;
+}
+
+table tr td:nth-child(3) {
+    color: #48852c;
+    font-weight: bold;
+}
+
+table tr td:nth-child(4) {
+    font-size: initial;
+    text-indent: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table tr td:nth-child(4) i {
+    color: rgba(221, 0, 0, 0.701);
+    margin-block-start: 12px;
+    margin-inline: 10px;
+    font-size: 1.2em;
+}
+
+
+
+table tr td:nth-child(4):hover #deleteIt {
+    opacity: 1;
+    color: rgba(221, 0, 0, 0.701);
+}
+
+table tfoot td {
+    background-color: var(--clr-shadow);
+    block-size: 50px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    text-align: center;
+    font-size: 1.3em;
+    color: #000;
+}
+
+/*  footer */
+footer {
+    background-color: var(--clr-block);
+    height: 45px;
+    width: 100%;
+    border-block-end: 5px solid red;
+    position: sticky;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -3px 15px var(--clr-shadow);
+}
+
+footer h3 {
+    color: var(--clr-title);
+    font-size: 1.3em;
+    text-decoration: none;
+}
