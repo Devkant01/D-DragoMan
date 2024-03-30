@@ -190,14 +190,14 @@ function saveData() {
     localStorage.setItem('recentActivities', ractivities.innerHTML);
     localStorage.setItem('tableData', pactivities.innerHTML);
 }
-// saveData(); //used to set initial value
+saveData(); //used to set initial value
 
 // Action: Loading data from local storage
-function getData() {
-    ractivities.innerHTML = localStorage.getItem('recentActivities');
-    pactivities.innerHTML = localStorage.getItem('tableData');
-}
-getData();
+// function getData() {
+    // ractivities.innerHTML = localStorage.getItem('recentActivities');
+    // pactivities.innerHTML = localStorage.getItem('tableData');
+// }
+// getData();
 
 // for copy and voice button
 // Action: copy to clipboard
