@@ -10,6 +10,7 @@ const listresult = document.querySelector('.listResult');
 const pactivities = document.querySelector('#table-list');
 const lang = document.querySelectorAll('#langType');
 const delBtn = document.querySelectorAll('#deleteIt');
+const search = document.querySelector('.suggestion');
 const copy = document.querySelector('.fa-copy');
 const copyText = document.querySelector('#copytool');
 const voice = document.querySelector('.fa-volume-high');
@@ -80,14 +81,12 @@ function convertorActivate() {
             if (!result) {
                 op.value = selfDict[ltype]['undefined'];
                 Ovalue = op.value;
-                document.querySelector('.suggestion').style.opacity = '1';
-                document.querySelector('.suggestion').addEventListener('click', (e) => {
-                    e.target.setAttribute('href', `https://translate.google.co.in/?sl=${lang[0].value}&tl=${lang[1].value}&text=${Ivalue}&op=translate`);
-                    console.log(e.href);
-
+                search.style.opacity = '1';
+                search.addEventListener('click', (e) => {
+                    window.open(`https://translate.google.co.in/?sl=${lang[0].value}&tl=${lang[1].value}&text=${Ivalue}&op=translate`, '_blank', 'width=380 height=700');
                 })
                 setTimeout(() => {
-                    document.querySelector('.suggestion').style.opacity = '0';
+                    search.style.opacity = '0';
                 }, 4000);
             }
 
